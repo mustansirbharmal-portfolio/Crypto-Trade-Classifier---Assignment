@@ -1,64 +1,99 @@
 # Crypto Trade Classifier
 
-This project implements a deep learning model to classify cryptocurrency trades as "Good" or "Bad" based on historical price data and technical indicators.
+A deep learning-based system that classifies cryptocurrency trades as "Good" or "Bad" using historical price data and technical indicators.
+
+## Overview
+
+This project implements an LSTM-based neural network to analyze cryptocurrency price patterns and predict potentially profitable trades. The system processes historical data through a web interface, allowing users to upload their own trading data and receive predictions.
 
 ## Features
 
-- LSTM-based deep learning model for time series classification
-- Technical indicators including RSI, MACD, and Bollinger Bands
-- Flask web interface for easy predictions
-- Interactive visualization using Plotly
+- Deep Learning model using LSTM architecture
 - Real-time trade classification
+- Technical indicator analysis (RSI, MACD, Bollinger Bands)
+- Interactive web interface
+- Visual representation of predictions
+- CSV file upload support
+
+## Technical Architecture
+
+### Data Processing
+- Processes historical price data (OHLCV format)
+- Calculates technical indicators
+- Creates 30-day sequences for analysis
+- Normalizes data for model input
+
+### Model Architecture
+- Two-layer LSTM neural network
+- Dropout layers for regularization
+- Binary classification output (Good/Bad trade)
+- PyTorch implementation
+
+### Web Application
+- Flask backend
+- Interactive frontend using jQuery
+- Plotly for visualization
+- RESTful API endpoints
 
 ## Installation
 
-1. Install the required packages:
+1. Clone the repository:
+```bash
+git clone https://github.com/mustansirbharmal-portfolio/Crypto-Trade-Classifier---Assignment.git
+cd Crypto-Trade-Classifier---Assignment
+```
+
+2. Install dependencies:
 ```bash
 pip install -r requirements.txt
 ```
 
-2. Train the model:
-```bash
-python crypto_classifier.py
-```
-
-3. Run the web application:
+3. Run the application:
 ```bash
 python app.py
 ```
 
+4. Open browser and navigate to:
+```
+http://localhost:5000
+```
+
 ## Usage
 
-1. Open your web browser and navigate to `http://localhost:5000`
-2. Upload a CSV file containing cryptocurrency price data
-3. Click "Analyze" to get trade predictions
-4. View the results in the interactive chart
+1. Prepare your data in CSV format with columns:
+   - Date
+   - Open
+   - High
+   - Low
+   - Close
+   - Volume
 
-## Model Details
+2. Upload the CSV file through the web interface
 
-The model uses a sequence of 30 days of data to predict whether the next day's trade will be profitable. It considers the following features:
+3. View the predictions in the interactive chart
 
-- Price data (Open, High, Low, Close)
-- Volume
-- Technical indicators (RSI, MACD, Bollinger Bands)
-- Price returns
+## Model Performance
 
-The deep learning model architecture consists of:
-- Two LSTM layers with dropout for sequence processing
-- Dense layers for final classification
-- Binary cross-entropy loss for optimization
+The model analyzes 30-day sequences of market data to predict trade outcomes. While achieving ~44% accuracy, the model provides valuable insights when combined with other trading strategies and proper risk management.
 
-## Data Format
+## Dependencies
 
-The input CSV file should contain the following columns:
-- Date
-- Open
-- High
-- Low
-- Close
-- Volume
-- Currency
+See `requirements.txt` for complete list of dependencies.
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a new Pull Request
 
 ## License
 
-This project is open-source and available under the MIT License.
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Contact
+
+Mustansir Bharmal - [GitHub Profile](https://github.com/mustansirbharmal-portfolio)
+
+Project Link: [https://github.com/mustansirbharmal-portfolio/Crypto-Trade-Classifier---Assignment](https://github.com/mustansirbharmal-portfolio/Crypto-Trade-Classifier---Assignment)
